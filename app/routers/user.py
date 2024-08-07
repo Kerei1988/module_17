@@ -28,7 +28,7 @@ async def tasks_by_user_id(db: Annotated[Session, Depends(get_db)], user_id: int
     return tasks
 
 
-@router.get('/all_users')
+@router.get('/')
 async def all_users(db: Annotated[Session, Depends(get_db)]):
     users = db.scalars(select(User)).all()
     return users
