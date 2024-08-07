@@ -11,7 +11,7 @@ from slugify import slugify
 router = APIRouter(prefix='/task', tags=['task'])
 
 
-@router.get('/all_tasks')
+@router.get('/')
 async def all_tasks(db: Annotated[Session, Depends(get_db)]):
     tasks = db.scalars(select(Task)).all()
     return tasks
