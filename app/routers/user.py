@@ -9,7 +9,7 @@ from app.backend.db_depends import get_db
 router = APIRouter(prefix='/user', tags=['user'])
 
 
-@router.get('/all_users')
+@router.get('/')
 async def all_users(db: Annotated[Session, Depends(get_db)]):
     users = db.scalars(select(User)).all()
     return users
